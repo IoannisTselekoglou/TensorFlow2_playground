@@ -14,7 +14,7 @@ print(x_test.shape, x_test.shape)
 #Dropout Layer: 
 model = tf.keras.models.Sequential([
     tf.keras.layers.Flatten(input_shape=(28, 28)),
-    tf.keras.layers.Dense(128, activation='relu'),
+    tf.keras.layers.Dense(150, activation='relu'),
     #128 -> Number of Nodes, with activation function rectifier(Sprung) 
     tf.keras.layers.Dropout(0.2),
     tf.keras.layers.Dense(10)
@@ -26,7 +26,7 @@ model.compile(optimizer='adam',
         metrics=['accuracy'])
 
 
-model.fit(x_train, y_train, epochs=10)
+model.fit(x_train, y_train, epochs=5)
 
 
 test_loss, test_acc = model.evaluate(x_test,  y_test, verbose=2)
@@ -37,7 +37,7 @@ prob = tf.keras.Sequential([
     tf.keras.layers.Softmax()
     ])
 
-print(prob(x_test[:5]))
+print(x_test)
 
 
 
